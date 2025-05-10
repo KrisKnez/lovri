@@ -35,18 +35,19 @@
     button:hover {
       background-color: #2980b9;
     }
-    .citat {
+    .citat, #poruka {
       display: none;
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 20px;
+      max-width: 840px;
       margin: 10px;
       padding: 10px;
       background-color: rgba(0, 0, 0, 0.6);
       color: white;
       border-radius: 10px;
     }
-    .poruka {
+    #poruka {
       display: block;
     }
   </style>
@@ -54,10 +55,10 @@
 <body>
   <div class="container">
     <!-- Each quote is in its own hidden div below -->
+    <div id="poruka">
+      Dođi Duše Sveti, po moćnom zagovoru Bezgrešnog srca Marije, svoje Preljubljene zaručnice!
+    </div>
     <div id="citati">
-      <div class="citat poruka">
-        Dođi Duše Sveti, po moćnom zagovoru Bezgrešnog srca Marije, svoje Preljubljene zaručnice!
-      </div>
       <div class="citat">
         “Ne boj se, jer ja sam s tobom; ne obaziri se, jer ja sam tvoj Bog. Ojačat ću te, pomagat ću ti, pridržavat ću te svojom desnicom.” – sveto pismo (Izaija 41:10)
       </div>
@@ -70,16 +71,21 @@
       <div class="citat">
         “U najvećim kušnjama, pronađi snagu u molitvi. Bog te čuje i odgovara." – sveta Majka Terezija
       </div>
-    </div>
+      <div class="citat">
+        “Nebo se bori za Tebe. Budi ustrajan, i vjeruj svome Bogu. " - Ivan Lovrinčević
+      </div>
+  </div>
     <button onclick="showRandomCitat()">Izvuci citat</button>
   </div>
   <script>
     function showRandomCitat() {
       // Hide all citats
+      const poruka = document.querySelector('#poruka');
       const citats = document.querySelectorAll('.citat:not(.poruka)');
-      const poruka = document.querySelectorAll('.poruka');
+      
+      poruka.style.display = 'none';
       citats.forEach(div => div.style.display = 'none');
-      poruka.forEach(div => div.style.display = 'none');
+      
       // Pick one at random and show it
       if (citats.length > 0) {
         const randomIndex = Math.floor(Math.random() * citats.length);
