@@ -76,7 +76,7 @@
   <script>
     function showRandomCitat() {
       // Hide all citats
-      const citats = document.querySelectorAll('.citat');
+      const citats = document.querySelectorAll('.citat:not(.poruka)');
       const poruka = document.querySelectorAll('.poruka');
       citats.forEach(div => div.style.display = 'none');
       poruka.forEach(div => div.style.display = 'none');
